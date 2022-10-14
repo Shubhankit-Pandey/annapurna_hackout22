@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../authentication/authentication.dart';
+import '../classes/database.dart';
 import '../classes/user.dart';
+import '../helper/loading.dart';
+import 'HomeScreen.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -14,10 +17,11 @@ class _RegisterState extends State<Register> {
   String password = '';
   String email = '';
   String error = '';
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<Usser?>(context);
-    return Scaffold(
+    return loading? Loading():Scaffold(
             body: Stack(children: <Widget>[
             SingleChildScrollView(
                 child: new Container(
@@ -69,15 +73,15 @@ class _RegisterState extends State<Register> {
                                         loading = false;
                                       });
                                     } else {
-                                      await DatabaseService(uid: user!.uid)
+                                      await DatabaseDonor(uid: user!.uid)
                                           .updateUserData(
-                                      email,password,
+                                      email,user!.uid,
                                       );
-                                      // Navigator.push(
-                                      //   context,
-                                      //   MaterialPageRoute(
-                                      //       builder: (context) =>()),
-                                      // );
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>HomeScreen()),
+                                      );
                                     }
                                   }
                                 }),

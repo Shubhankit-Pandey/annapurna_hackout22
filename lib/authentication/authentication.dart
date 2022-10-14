@@ -11,12 +11,24 @@ class AuthService {
     return _auth.authStateChanges().map( _userFormFirebaseUser );
   }
 
-  Future registerWithEmailAndPassword(String email, String password, String name, String roll, String pno) async{
+  Future registerWithEmailAndPassword(String email, String password) async{
     try{
       UserCredential result=await _auth.createUserWithEmailAndPassword(email: email, password: password);
       User? user=result.user;
       FirebaseFirestore.instance.collection("users").doc(user?.uid).set({
         "uid": user?.uid,});
+    }
+    catch(e){
+      print(e.toString());
+      return null;
+    }
+  }
+
+  Future signInWithEmailAndPassword(String email, String password) async{
+    try{
+      UserCredential result=await _auth.signInWithEmailAndPassword(email: email, password: password);
+      User? user=result.user;
+      return _userFormFirebaseUser(user);
     }
     catch(e){
       print(e.toString());
