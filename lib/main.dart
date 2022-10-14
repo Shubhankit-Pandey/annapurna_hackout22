@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'Screens/SplashScreen.dart';
 
-class  extends StatefulWidget {
-  const ({Key? key}) : super(key: key);
-
-  @override
-  _State createState() => _State();
-}
-
-class _State extends State<> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: SplashScreen(),
+  ));
 }
