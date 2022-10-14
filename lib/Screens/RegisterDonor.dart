@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../authentication/authentication.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../classes/database.dart';
 import '../classes/user.dart';
 import '../helper/loading.dart';
 import 'HomeScreen.dart';
 
-class Register extends StatefulWidget {
+class RegisterDonor extends StatefulWidget {
   @override
-  _RegisterState createState() => _RegisterState();
+  _RegisterDonorState createState() => _RegisterDonorState();
 }
 
-class _RegisterState extends State<Register> {
+class _RegisterDonorState extends State<RegisterDonor> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   String password = '';
@@ -63,19 +65,21 @@ class _RegisterState extends State<Register> {
                                 onPressed: () async {
                                   if (_formKey.currentState!.validate()) {
                                     dynamic result = await _auth
-                                        .registerWithEmailAndPassword(
+                                        .register2WithEmailAndPassword(
                                       email,
                                       password,
                                     );
                                     if (result == null) {
+                                     // print("hekko2");
                                       setState(() {
                                         error = 'please supply a valid email';
                                         loading = false;
                                       });
                                     } else {
+                                     // print("hekko3");
                                       await DatabaseDonor(uid: user!.uid)
                                           .updateUserData(
-                                      email,user!.uid,
+                                      email,user!.uid
                                       );
                                       Navigator.push(
                                         context,

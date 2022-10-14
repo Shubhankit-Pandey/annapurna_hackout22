@@ -1,3 +1,4 @@
+import 'package:annapurna/classes/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../classes/user.dart';
@@ -15,8 +16,24 @@ class AuthService {
     try{
       UserCredential result=await _auth.createUserWithEmailAndPassword(email: email, password: password);
       User? user=result.user;
-      FirebaseFirestore.instance.collection("users").doc(user?.uid).set({
+      FirebaseFirestore.instance.collection("ngo_profile").doc(user?.uid).set({
         "uid": user?.uid,});
+      await DatabaseNGO(uid: user!.uid).updateUserData(email, user!.uid);
+      return _userFormFirebaseUser(user);
+    }
+    catch(e){
+      print(e.toString());
+      return null;
+    }
+  }
+  Future register2WithEmailAndPassword(String email, String password) async{
+    try{
+      UserCredential result=await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      User? user=result.user;
+      FirebaseFirestore.instance.collection("donor_profile").doc(user?.uid).set({
+        "uid": user?.uid,});
+      await DatabaseDonor(uid: user!.uid).updateUserData(email, user!.uid);
+      return _userFormFirebaseUser(user);
     }
     catch(e){
       print(e.toString());

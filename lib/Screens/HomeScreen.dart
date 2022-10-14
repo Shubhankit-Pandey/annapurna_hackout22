@@ -22,6 +22,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<Usser?>(context);
-    return Scaffold();
+    return Scaffold(
+      body:
+      RaisedButton(
+          color: Colors.blue,
+          child: Text(
+            'Receiver',
+            style: TextStyle(
+                fontSize: 18,
+                fontFamily: 'Mochiy Pop P One',
+                color: Colors.white),
+          ),
+          onPressed: () async {
+            await _auth.signOut();
+          })
+    );
   }
 }

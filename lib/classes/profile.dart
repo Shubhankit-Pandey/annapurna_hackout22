@@ -1,14 +1,13 @@
-class Usser{
-  String uid;
-  Usser({required this.uid,});
-}
-class UserData {
+class Profile {
   final String uid;
+  final String email;
   final String name;
   final String rollno;
   final String pno;
-  UserData(
-      {required this.uid,
+  Profile(
+      {
+        required this.email,
+        required this.uid,
         required this.name,
         required this.rollno,
         required this.pno

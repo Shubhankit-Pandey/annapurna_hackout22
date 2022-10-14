@@ -9,10 +9,11 @@ class DatabaseDonor {
   FirebaseFirestore.instance.collection('donor_profile');
 
   Future<void> updateUserData(String email,String uid) async {
+   // DocumentReference doc = FirebaseFirestore.instance.collection('ngo').doc();
     return await profileCollection.doc(uid).set({
       'email': email,
       'uid': uid,
-    });
+  });
   }
 }
 

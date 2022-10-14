@@ -6,12 +6,12 @@ import '../classes/user.dart';
 import '../helper/loading.dart';
 import 'HomeScreen.dart';
 
-class Register extends StatefulWidget {
+class RegisterNgo extends StatefulWidget {
   @override
-  _RegisterState createState() => _RegisterState();
+  _RegisterNgoState createState() => _RegisterNgoState();
 }
 
-class _RegisterState extends State<Register> {
+class _RegisterNgoState extends State<RegisterNgo> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   String password = '';
