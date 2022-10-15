@@ -34,23 +34,23 @@ class _HomeScreenState extends State<HomeScreen> {
     List<String> long = [];
     List<String> pid = [];
     List<String> veg = [];
+    List<String> uid = [];
     final user = Provider.of<Usser?>(context);
     return Scaffold(
+      appBar: AppBar(
+        flexibleSpace:RaisedButton(
+                    onPressed: () async {
+                      await _auth.signOut();
+                    },
+                  ),
+
+    ),
         body:
         //SafeArea(
             // child: Scaffold(
             //   body: SingleChildScrollView(
                  Container(
         height:500,
-            //       decoration: BoxDecoration(color: Colors.white),
-            //       child: Column(
-            //         children: <Widget>[
-            //           RaisedButton(
-            //             onPressed: () async {
-            //               await _auth.signOut();
-            //             },
-            //           ),
-
                     child:  StreamBuilder<QuerySnapshot>(
                           stream: FirebaseFirestore.instance
                               .collection('Inventory')
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               date.add(element['date']);
                               lat.add(element['latitude']);
                               long.add(element['longitude']);
-                              url.add(element['userid']);
+                              uid.add(element['userid']);
                               pid.add(element['productid']);
                                                          });
                             c=documentSnapshotList.length;
@@ -86,29 +86,29 @@ class _HomeScreenState extends State<HomeScreen> {
                                       longitude: long[i],
                                       veg: veg[i],
                                       productid: pid[i],
-                                      userid: url[i],
+                                      userid: uid[i],
                                       date: date[i],
                                     ));
-                                return ListView.builder(
-                                  itemCount: profile.length,
-                                  itemBuilder: (context, index) {
-                                    return Tile(profile: profile[index], ind: index);
-                                  },
-                                );
-                                // return GridView.builder(
-                                //   gridDelegate:
-                                //       SliverGridDelegateWithFixedCrossAxisCount(
-                                //     crossAxisCount: 2,
-                                //     mainAxisSpacing: 20,
-                                //   ),
-                                //   padding: EdgeInsets.all(25),
-                                //   physics: NeverScrollableScrollPhysics(),
+                                // return ListView.builder(
+                                //   itemCount: profile.length,
                                 //   itemBuilder: (context, index) {
                                 //     return Tile(profile: profile[index], ind: index);
                                 //   },
-                                //   itemCount: profile.length,
-                                //   shrinkWrap: true,
                                 // );
+                                return GridView.builder(
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    mainAxisSpacing: 20,
+                                  ),
+                                  padding: EdgeInsets.all(25),
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemBuilder: (context, index) {
+                                    return Tile(profile: profile[index], ind: index);
+                                  },
+                                  itemCount: profile.length,
+                                  shrinkWrap: true,
+                                );
                               }
                             }
                           })

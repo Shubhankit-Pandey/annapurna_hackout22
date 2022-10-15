@@ -15,7 +15,7 @@ class wrapper extends StatelessWidget {
       return Enter();
     }
     else{
-      return LoginNgo();
+      return HomeScreen();
     }
   }
 }
