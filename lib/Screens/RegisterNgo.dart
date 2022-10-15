@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import '../authentication/authentication.dart';
 import '../classes/database.dart';
 import '../classes/user.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
@@ -198,7 +197,7 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) =>Donate()),
+                                              builder: (context) =>Donate(lat:0,long:0)),
                                         );
                                         await DatabaseNGO(uid: user!.uid)
                                             .updateUserData(
@@ -208,7 +207,7 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) => Donate()),
+                                              builder: (context) => Donate(lat:0,long:0))
                                         );
                                       }
 

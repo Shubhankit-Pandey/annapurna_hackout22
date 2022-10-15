@@ -28,17 +28,14 @@ class _HomeState extends State<Home> {
 
     }
 
-  Future<List> UpdateMyCoordinates()async{
+  void UpdateMyCoordinates()async{
     Location locator = Location();
     var locatorData = await locator.getLocation();
     setState(() {
       nextScreenLatitude =  locatorData.latitude! ;
       nextScreenLongitude = locatorData.longitude! ;
     });
-    List<double> a=[];
-    a.add(nextScreenLatitude);
-    a.add(nextScreenLongitude);
-  return a;
+
   }
   double intialLatitude = 20.5937;
   double intitalLongitude = 78.9629;
@@ -69,7 +66,7 @@ class _HomeState extends State<Home> {
 
 }*/
 
-  Future<List> update()async{
+  void update()async{
     var locationData = await _locationT.getLocation();
     // var imagedata = await getImageData();
 
@@ -83,13 +80,12 @@ class _HomeState extends State<Home> {
 
           )));
     }
-    Future<List<dynamic>> b=UpdateMyCoordinates();
+  UpdateMyCoordinates();
 
 
 
     updateMarker(locationData);
 
-return b;
 
 
   }
@@ -100,7 +96,7 @@ return b;
       child: Scaffold(
           floatingActionButton: FloatingActionButton(
             onPressed: (){
-              Future<List<dynamic>> d=update();
+           update();
             },
             child: Icon(Icons.location_searching_rounded),
           ),

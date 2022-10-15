@@ -117,7 +117,7 @@ class _signInState extends State<signIn> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => Donate()),
+                                            builder: (context) => Donate(lat:0,long:0)),
                                       );
                                     }
                                   }
