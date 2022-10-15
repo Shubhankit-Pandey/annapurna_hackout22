@@ -227,8 +227,11 @@ class _DonateState extends State<Donate> {
                               ),
                             ),
                           ),
-                          RaisedButton(
-                            color: Colors.blue,
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              foregroundColor: MaterialStateProperty.all(Colors.blue),
+                              backgroundColor: MaterialStateProperty.all(Colors.blue)
+                            ),
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[

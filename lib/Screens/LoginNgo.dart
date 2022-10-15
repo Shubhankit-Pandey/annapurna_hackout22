@@ -52,6 +52,9 @@ class _LoginNgoState extends State<LoginNgo> {
                   child: Form(
                       key: _formKey,
                       child: Column(children: <Widget>[
+                        SizedBox(
+                          height: 40,
+                        ),
 
                         Padding(
                           padding: const EdgeInsets.all(22.0),
@@ -93,12 +96,13 @@ class _LoginNgoState extends State<LoginNgo> {
                           ),
                         ),
                         SizedBox(height: 30.0),
-                        RaisedButton(
-                            padding: EdgeInsets.all(10),
-                            color: const Color.fromARGB(
-                                0xFF, 0x98, 0x31, 0x6A),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
+                        ElevatedButton(
+                        style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                         borderRadius: BorderRadius.circular(14)
+                           )),
+    backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
+    ),
                             child: Text(
                               'Sign In',
                               style: TextStyle(
@@ -131,10 +135,7 @@ class _LoginNgoState extends State<LoginNgo> {
                             SizedBox(width: 45,),
                             Text("Don't have an account?",style: TextStyle(color: Color.fromARGB(
                                 0x77, 0x98, 0x31, 0x6A),fontWeight: FontWeight.normal)),
-                            TextButton(onPressed:() => Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => RegisterDonor()),
-                            ), child: Text("Register",style: TextStyle(color: Color.fromARGB(
+                            TextButton(onPressed:() => Navigator.pop(context), child: Text("Register",style: TextStyle(color: Color.fromARGB(
                                 0xFF, 0x98, 0x31, 0x6A),fontWeight: FontWeight.w400)
                               ,))
                           ],
@@ -144,6 +145,12 @@ class _LoginNgoState extends State<LoginNgo> {
               ),
             ],
           ),
+          Positioned(
+            child: Image(image: AssetImage('images/reciever-image-1.png')),
+            top: MediaQuery.of(context).size.height * 0.12,
+            left: MediaQuery.of(context).size.width * 0.3,
+          ),
+
 
         ]));
   }

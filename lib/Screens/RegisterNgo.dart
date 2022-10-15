@@ -25,11 +25,6 @@ class _RegisterNgoState extends State<RegisterNgo> {
     final user = Provider.of<Usser?>(context);
     return loading? Loading():Scaffold(
         body: Stack(children: <Widget>[
-          Positioned(
-            child: Image(image: AssetImage('')),
-            top: MediaQuery.of(context).size.height * 0.25,
-            left: MediaQuery.of(context).size.width * 0.3,
-          ),
           SingleChildScrollView(
               child: Column(
                 children: [
@@ -47,12 +42,15 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                const Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)),
                            borderRadius: BorderRadius.circular(30),
                            color: Colors.white),
-                       height: MediaQuery.of(context).size.height*0.52,
+                       height: MediaQuery.of(context).size.height*0.58,
                         padding:
                         EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
                         child: Form(
                             key: _formKey,
                             child: Column(children: <Widget>[
+                              SizedBox(
+                                height: 20,
+                              ),
                               TextFormField(
                                 decoration: InputDecoration(
                                   hintText: 'Email',
@@ -68,7 +66,7 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                   setState(() => email = val);
                                 },
                               ),
-                              SizedBox(height: 15.0),
+                              SizedBox(height: 25.0),
                               TextFormField(
                                 decoration: InputDecoration(
                                   hintText: 'Password',
@@ -87,13 +85,14 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                 },
                               ),
 
-                              SizedBox(height: 10.0),
-                              RaisedButton(
-                                  padding: EdgeInsets.all(10),
-                                  color: const Color.fromARGB(
-                                      0xFF, 0x98, 0x31, 0x6A),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10)),
+                              SizedBox(height: 20.0),
+                              ElevatedButton(
+                                  style: ButtonStyle(
+                                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(14)
+                                      )),
+                                      backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
+                                  ),
                                   child: Text(
                                     'Register',
                                     style: TextStyle(
@@ -127,7 +126,7 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) =>Donate()),
+                                              builder: (context) => Donate()),
                                         );
                                       }
 
@@ -147,7 +146,7 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                       onPressed: () => Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => LoginNgo ()),
+                                            builder: (context) => LoginNgo()),
                                       ),
                                       child: Text(
                                         "Sign In",
@@ -162,7 +161,12 @@ class _RegisterNgoState extends State<RegisterNgo> {
                             ]))),
                  ),
                 ],
-              ))
+              )),
+          Positioned(
+            child: Image(image: AssetImage('images/reciever-image-1.png')),
+            top: MediaQuery.of(context).size.height * 0.12,
+            left: MediaQuery.of(context).size.width * 0.3,
+          ),
         ]));
   }
 }

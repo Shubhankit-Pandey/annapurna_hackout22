@@ -26,27 +26,22 @@ class _RegisterDonorState extends State<RegisterDonor> {
     return loading
         ? Loading()
         : Scaffold(
-            body: Stack(children: <Widget>[
-            Positioned(
-              child: Image(image: AssetImage('')),
-              top: MediaQuery.of(context).size.height * 0.25,
-              left: MediaQuery.of(context).size.width * 0.3,
-            ),
+            body: Stack(
+                children: <Widget>[
             SingleChildScrollView(
                 child: new Column(
               children: [
                 SizedBox(
-                  height: 150,
+                  height: 200,
                 ),
                 Padding(
                   padding:
-                      EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+                      EdgeInsets.symmetric(vertical: 20.0, horizontal: 42.0),
                   child: Container(
                       decoration: BoxDecoration(
                           border: Border.all(
                               width: 3,
-                              color:
-                                  const Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)),
+                              color: const Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)),
                           borderRadius: BorderRadius.circular(30),
                           color: Colors.white),
                       height: MediaQuery.of(context).size.height*0.52,
@@ -55,6 +50,7 @@ class _RegisterDonorState extends State<RegisterDonor> {
                       child: Form(
                           key: _formKey,
                           child: Column(children: <Widget>[
+                            SizedBox(height: 40,),
                             TextFormField(
                               decoration: InputDecoration(
                                 hintText: 'Email',
@@ -70,7 +66,7 @@ class _RegisterDonorState extends State<RegisterDonor> {
                                 setState(() => email = val);
                               },
                             ),
-                            SizedBox(height: 15.0),
+                            SizedBox(height: 20.0),
                             TextFormField(
                               decoration: InputDecoration(
                                 hintText: 'Password',
@@ -89,12 +85,13 @@ class _RegisterDonorState extends State<RegisterDonor> {
                               },
                             ),
                             SizedBox(height: 30.0),
-                            RaisedButton(
-                                padding: EdgeInsets.all(10),
-                                color: const Color.fromARGB(
-                                    0xFF, 0x98, 0x31, 0x6A),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(14)
+                                )),
+                                backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
+                              ),
                                 child: Text(
                                   'Register',
                                   style: TextStyle(
@@ -112,7 +109,7 @@ class _RegisterDonorState extends State<RegisterDonor> {
 
                                     if (result == null) {
                                       setState(() {
-                                        error = 'please supply a valid email';
+                                        error = 'Please supply a valid email';
                                         loading = false;
                                       });
                                     } else {
@@ -148,18 +145,23 @@ class _RegisterDonorState extends State<RegisterDonor> {
                                               builder: (context) => signIn()),
                                         ),
                                     child: Text(
-                                      "Sign In",
+                                      "Log In",
                                       style: TextStyle(
                                           color: Color.fromARGB(
                                               0xFF, 0x98, 0x31, 0x6A),
-                                          fontWeight: FontWeight.w400),
+                                          fontWeight: FontWeight.normal),
                                     ))
                               ],
                             ),
                           ]))),
                 ),
               ],
-            ))
+            )),
+                  Positioned(
+                    child: Image(image: AssetImage('images/donor-image-1.png')),
+                    top: MediaQuery.of(context).size.height * 0.18,
+                    left: MediaQuery.of(context).size.width * 0.32,
+                  ),
           ]));
   }
 }

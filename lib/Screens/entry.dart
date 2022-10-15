@@ -69,8 +69,8 @@ class _EnterState extends State<Enter> {
                 Expanded(
                   child: Container(
                     alignment: Alignment.center,
-                    // margin: const EdgeInsets.all(10),
-                    // padding: const EdgeInsets.all(10),
+                     margin: const EdgeInsets.all(10),
+                     padding: const EdgeInsets.all(10),
                     width: MediaQuery.of(context).size.width * 0.49,
                     height: MediaQuery.of(context).size.height,
                     decoration: BoxDecoration(
@@ -82,10 +82,12 @@ class _EnterState extends State<Enter> {
                     child: Column(
                       children: [
                         TextButton(
-                          child: Container(
-                            child: const Image(
-                              image: AssetImage("images/donor-image-1.png"),
-                              height:100,
+                          child: Expanded(
+                            child: Container(
+                              child: const Image(
+                                image: AssetImage("images/donor-image-1.png"),
+                                height:80,
+                              ),
                             ),
                           ),
                           onPressed: () => { Navigator.push(
