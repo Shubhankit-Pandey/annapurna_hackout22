@@ -122,12 +122,14 @@ class _DonateState extends State<Donate> {
                                         MaterialPageRoute(
                                             builder: (context) => Home())),
                                     child:
-                                    Text("Your Location", style: TextStyle()),
+                                    Text("Click to register Location", style: TextStyle(color:  const Color.fromARGB(0xFF, 0x98, 0x31, 0x6A),)),
                                   ),
                                   Row(
                                     children: [
-                                      Text('Veg',style: TextStyle(color: Colors.white),),
+                                      SizedBox(width: 40,),
+                                      Text('Veg',style: TextStyle(color: Colors.green),),
                                       Radio(
+                                        fillColor: MaterialStateProperty.all(Colors.green),
                                         value: "veg",
                                         groupValue:veg,
                                         onChanged: (value){
@@ -136,8 +138,9 @@ class _DonateState extends State<Donate> {
                                           });
                                         },
                                       ),
-                                      Text('Non-Veg',style: TextStyle(color: Colors.white),),
+                                      Text('Non-Veg',style: TextStyle(color: Colors.red),),
                                       Radio(
+                                        fillColor: MaterialStateProperty.all(Colors.red),
                                         value: "nonveg",
                                         groupValue: veg,
                                         onChanged: (value){
@@ -151,14 +154,16 @@ class _DonateState extends State<Donate> {
                                   Padding(
                                     padding: EdgeInsets.only(left: 20.0, right: 20.0),
                                   ),
+                                  SizedBox(height: 20,),
+                                  Text("Number of Persons",style: TextStyle( color: const Color.fromARGB(0xFF, 0x98, 0x31, 0x6A),),),
                                   SizedBox(height: 20.0),
                                   Container(
                                       width: 300,
                                       padding: EdgeInsets.symmetric(
                                           vertical: 5, horizontal: 30),
                                       child: DropdownButtonFormField(
-                                          dropdownColor:
-                                          Color.fromRGBO(12, 65, 96, 0.5),
+
+                                          dropdownColor: Colors.cyan.shade50,
                                           focusColor: Color.fromRGBO(12, 65, 96, 0.5),
                                           items: items.map((items) {
                                             return DropdownMenuItem(
@@ -167,7 +172,7 @@ class _DonateState extends State<Donate> {
                                           onChanged: (val) {
                                             setState(() => capacity = val! as String);
                                           })),
-                                  SizedBox(height: 10.0),
+                                  SizedBox(height: 260.0),
                                   Padding(
                                     padding: EdgeInsets.only(left: 20.0, right: 20.0),
                                   ),
@@ -182,7 +187,7 @@ class _DonateState extends State<Donate> {
 
                                       ),
                                       child: TextFormField(
-                                        decoration: InputDecoration(hintText: ' Date',),style: TextStyle(),
+                                        decoration: InputDecoration(hintText: '                                     Date',hintStyle: TextStyle(color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A),fontWeight: FontWeight.w500,fontSize: 17)),
                                         validator: (val) => val!.isEmpty
                                             ? 'please enter a valid date'
                                             : null,
@@ -199,12 +204,13 @@ class _DonateState extends State<Donate> {
                                         const BoxDecoration(color: Colors.white70),
                                         child: Row(
                                           children: [
+                                            SizedBox(width: 27,),
                                             FloatingActionButton(
                                               onPressed: () {
                                                 getImage();
                                               },
                                               backgroundColor:
-                                              Color.fromRGBO(92, 104, 211, .5),
+                                              Color.fromARGB(0xFF, 0x98, 0x31, 0x6A),
                                               child: Icon(Icons.add_a_photo_outlined),
                                             ),
                                             Text(
@@ -221,8 +227,10 @@ class _DonateState extends State<Donate> {
                                   ),
                                   ElevatedButton(
                                     style: ButtonStyle(
-                                        foregroundColor: MaterialStateProperty.all(Colors.blue),
-                                        backgroundColor: MaterialStateProperty.all(Colors.blue)
+                                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(14)
+                                        )),
+                                        backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
                                     ),
                                     child: Column(
                                         mainAxisAlignment: MainAxisAlignment.center,
