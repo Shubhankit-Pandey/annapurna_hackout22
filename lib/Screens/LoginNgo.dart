@@ -28,9 +28,7 @@ class _LoginNgoState extends State<LoginNgo> {
         ? Loading()
         : Scaffold(
         body: Stack(children: <Widget>[
-          Positioned(child: Image(image: AssetImage(''))
-            ,top: MediaQuery.of(context).size.height*0.25,
-            left: MediaQuery.of(context).size.width*0.3,),
+
           Column(
             children: [
               SizedBox(

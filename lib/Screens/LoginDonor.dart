@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/cupertino.dart';
 import '../helper/loading.dart';
+import 'Donate.dart';
 import 'HomeScreen.dart';
 
 class signIn extends StatefulWidget {
@@ -116,7 +117,7 @@ class _signInState extends State<signIn> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => HomeScreen()),
+                                            builder: (context) => Donate()),
                                       );
                                     }
                                   }
