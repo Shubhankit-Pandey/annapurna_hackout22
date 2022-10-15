@@ -17,45 +17,46 @@ class _EnterState extends State<Enter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(
+          0xFF, 0x98, 0x31, 0x6A),
       body: Column(
         children: <Widget>[
+          SizedBox(height: 40,),
           Container(
-            decoration: BoxDecoration(
-              color: c,
-              border: Border.all(
-                color: c,
-                width: 0,
-              ),
-            ),
-            padding: const EdgeInsets.all(40),
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.4,
-            // color: Colors.purple,
+            padding: const EdgeInsets.fromLTRB(35, 43,35,0),
+            // width: MediaQuery.of(context).size.width,
+            // height: MediaQuery.of(context).size.height * 0.4,
             child: const Image(
-                image: AssetImage('assets/screen_images/food.jpg'),
+                image: AssetImage("images/donate.png"),
                 // colorBlendMode: BlendMode.overlay,
                 alignment: Alignment.center),
           ),
           Container(
-            decoration: BoxDecoration(
-              color: c,
-              border: Border.all(
-                color: c,
-                width: 0,
-              ),
-            ),
-            padding: const EdgeInsets.all(0),
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.3,
-            // color: Colors.purple,
-            child: const Text(
-              '\n  Hi! \n  Who are you ?',
-              style: TextStyle(
-                decoration: TextDecoration.none,
-                color: Color.fromARGB(0xFF, 0xF9, 0xF9, 0xF9),
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-              ),
+            height: 200,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: 40,),
+                Text(
+                  'Heyy !',
+                  style: TextStyle(
+                    decoration: TextDecoration.none,
+                    color: Color.fromARGB(0xFF, 0xF9, 0xF9, 0xF9),
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  ' Who are you ?',
+                  style: TextStyle(
+                    decoration: TextDecoration.none,
+                    color: Color.fromARGB(0xFF, 0xF9, 0xF9, 0xF9),
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ),
           Container(
@@ -68,27 +69,46 @@ class _EnterState extends State<Enter> {
                 Expanded(
                   child: Container(
                     alignment: Alignment.center,
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(10),
+                    // margin: const EdgeInsets.all(10),
+                    // padding: const EdgeInsets.all(10),
                     width: MediaQuery.of(context).size.width * 0.49,
                     height: MediaQuery.of(context).size.height,
                     decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: d),
+                      border: Border.all(width: 2, color: d),
                       borderRadius: BorderRadius.circular(10),
-                      // image: const DecorationImage(
-                      //   image: AssetImage('assets/screen_images/food.jpg'),
-                      //   fit: BoxFit.fill,
-                      // ),
+
                     ),
-                    child: TextButton(
-                      child: Container(
-                        child: const Image(
-                          image: AssetImage('assets/screen_images/food.jpg'),
+
+                    child: Column(
+                      children: [
+                        TextButton(
+                          child: Container(
+                            child: const Image(
+                              image: AssetImage("images/donor-image-1.png"),
+                              height:100,
+                            ),
+                          ),
+                          onPressed: () => { Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>RegisterDonor()),)
+                          },
                         ),
-                      ),
-                      onPressed: () => {},
+                        //  SizedBox(height: 10,),
+                        Text(
+                          'Donor',
+                          style: TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Color.fromARGB(0xFF, 0xF9, 0xF9, 0xF9),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
                     ),
+
                   ),
+
                 ),
                 Expanded(
                   child: Container(
@@ -98,37 +118,42 @@ class _EnterState extends State<Enter> {
                     width: MediaQuery.of(context).size.width * 0.49,
                     height: MediaQuery.of(context).size.height,
                     decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: d),
+                      border: Border.all(width: 2, color: d),
                       borderRadius: BorderRadius.circular(10),
-                      // image: const DecorationImage(
-                      //   image: AssetImage('assets/screen_images/food.jpg'),
-                      //   fit: BoxFit.fill,
-                      // ),
                     ),
-                    child: TextButton(
-                      child: Container(
-                        child: const Image(
-                          image: AssetImage('assets/screen_images/food.jpg'),
+                    child: Column(
+                      children: [
+                        TextButton(
+                          child: Container(
+                            child: const Image(
+                              image: AssetImage("images/reciever-image-1.png"),
+                              height:80,
+                            ),
+                          ),
+                          onPressed: () => { Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>RegisterNgo()),
+                          )},
                         ),
-                      ),
-                      onPressed: () => {},
+                        // SizedBox(height: 20,),
+                        Text(
+                          'Reciever',
+                          style: TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Color.fromARGB(0xFF, 0xF9, 0xF9, 0xF9),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: c,
-              border: Border.all(
-                color: c,
-                width: 0,
-              ),
-            ),
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.1,
-          )
+
         ],
       ),
     );

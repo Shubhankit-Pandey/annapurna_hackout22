@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
       _navigationtohome();
     }
     _navigationtohome()async{
-      await Future.delayed(Duration(seconds:4), () {});
+      await Future.delayed(Duration(seconds:3), () {});
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) =>Verify()));
     }
@@ -36,8 +36,11 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Padding(padding: EdgeInsets.only(top:60.0,bottom: 20.0)),
-                      Image(image: AssetImage('')),
+
+                      Padding(
+                          padding: EdgeInsets.only(top:70.0,bottom: 0.0,left: 40,right: 40),
+                        child: Image(image: AssetImage("images/logo-png.png")),
+                      ),
                     ],
                   ),
                 ),
@@ -45,7 +48,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          SpinKitRotatingCircle(color: Color.fromRGBO(12,65,96,1)),
+                          SpinKitRotatingCircle(color: const Color.fromARGB(
+                              0xFF, 0x98, 0x31, 0x6A),),
                           Padding(
                             padding: EdgeInsets.only(top: 20.0),
                           ),
