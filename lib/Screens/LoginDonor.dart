@@ -25,10 +25,8 @@ class _signInState extends State<signIn> {
         ? Loading()
         : Scaffold(
             body: Stack(children: <Widget>[
-              Positioned(child: Image(image: AssetImage(''))
-              ,top: MediaQuery.of(context).size.height*0.25,
-              left: MediaQuery.of(context).size.width*0.3,),
-           Column(
+
+           ListView(
              children: [
                SizedBox(
                  height: 150,
@@ -140,7 +138,7 @@ class _signInState extends State<signIn> {
              ],
            ),
               Positioned(
-                child: Image(image: AssetImage('images/reciever-image-1.png')),
+                child: Image(image: AssetImage('images/donor-image-1.png')),
                 top: MediaQuery.of(context).size.height * 0.12,
                 left: MediaQuery.of(context).size.width * 0.3,
               ),
