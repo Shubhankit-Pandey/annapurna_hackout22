@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+
 
   @override
   State<Home> createState() => _HomeState();
@@ -14,22 +16,29 @@ class _HomeState extends State<Home> {
   @override
 
   void saveMyCoordinates() async {
+
     setState(() {
       UpdateMyCoordinates();
     });
-    if(nextScreenLatitude != 0 && nextScreenLongitude != 0){
-      print("Lat: ${nextScreenLatitude} and Long: ${nextScreenLongitude}");
+    // if(nextScreenLatitude != 0 && nextScreenLongitude != 0){
+    //   FirebaseFirestore.instance
+    //       .collection('Inventory')
+    //       .doc(uid)
+    //       .update({'Latitude': nextScreenLatitude ,'logitude': nextScreenLongitude});
 
     }
-  }
-  void UpdateMyCoordinates()async{
+
+  Future<List> UpdateMyCoordinates()async{
     Location locator = Location();
     var locatorData = await locator.getLocation();
     setState(() {
       nextScreenLatitude =  locatorData.latitude! ;
       nextScreenLongitude = locatorData.longitude! ;
     });
-
+    List<double> a=[];
+    a.add(nextScreenLatitude);
+    a.add(nextScreenLongitude);
+  return a;
   }
   double intialLatitude = 20.5937;
   double intitalLongitude = 78.9629;
@@ -60,7 +69,7 @@ class _HomeState extends State<Home> {
 
 }*/
 
-  void update()async{
+  Future<List> update()async{
     var locationData = await _locationT.getLocation();
     // var imagedata = await getImageData();
 
@@ -74,13 +83,13 @@ class _HomeState extends State<Home> {
 
           )));
     }
-    UpdateMyCoordinates();
+    Future<List<dynamic>> b=UpdateMyCoordinates();
 
 
 
     updateMarker(locationData);
 
-
+return b;
 
 
   }
@@ -91,7 +100,7 @@ class _HomeState extends State<Home> {
       child: Scaffold(
           floatingActionButton: FloatingActionButton(
             onPressed: (){
-              update();
+              Future<List<dynamic>> d=update();
             },
             child: Icon(Icons.location_searching_rounded),
           ),
@@ -107,9 +116,6 @@ class _HomeState extends State<Home> {
                   initialCameraPosition: CameraPosition(
                       target: LatLng(intialLatitude,intitalLongitude),
                       zoom: 5.23
-
-
-
 
                   ),
                   markers: Set.of( marker != null ? [marker] : []),

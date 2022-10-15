@@ -30,29 +30,29 @@ class _FlashState extends State<Flash> {
                   child: Text('SORRY',style: TextStyle(color: Color.fromRGBO(12,65,96,.9),fontSize: 40,fontWeight: FontWeight.w500),)
               ),
 
-              ElevatedButton(
-                  style: ButtonStyle(
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14)
-                      )),
-                      backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
-                  ),
-                  child: Text(
-                    'Register',
-                    style: TextStyle(
-                        fontFamily: 'Mochiy Pop P One',
-                        color: Colors.white,
-                        fontSize: 18),
-                  ),
-                  onPressed: () async {
-
-
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Donate()));
-
-                  }),              SizedBox(height: 7,),
+              // RaisedButton(
+              //     padding: EdgeInsets.all(10),
+              //     color: const Color.fromARGB(
+              //         0xFF, 0x98, 0x31, 0x6A),
+              //     shape: RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.circular(10)),
+              //     child: Text(
+              //       'Register',
+              //       style: TextStyle(
+              //           fontFamily: 'Mochiy Pop P One',
+              //           color: Colors.white,
+              //           fontSize: 18),
+              //     ),
+              //     onPressed: () async {
+              //
+              //
+              //         Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //               builder: (context) => Donate()));
+              //
+              //     }),
+                            SizedBox(height: 7,),
               Center(
                   child: Text('No match found.',style: TextStyle(color: Color.fromRGBO(12,65,96,.7),fontSize: 16),)
               ),

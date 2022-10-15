@@ -1,4 +1,3 @@
-import 'package:annapurna/Screens/LoginNgo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Screens/HomeScreen.dart';
@@ -15,7 +14,7 @@ class wrapper extends StatelessWidget {
       return Enter();
     }
     else{
-      return LoginNgo();
+      return HomeScreen();
     }
   }
 }
