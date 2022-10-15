@@ -25,10 +25,8 @@ class _signInState extends State<signIn> {
         ? Loading()
         : Scaffold(
             body: Stack(children: <Widget>[
-              Positioned(child: Image(image: AssetImage(''))
-              ,top: MediaQuery.of(context).size.height*0.25,
-              left: MediaQuery.of(context).size.width*0.3,),
-           Column(
+
+           ListView(
              children: [
                SizedBox(
                  height: 150,
@@ -49,7 +47,7 @@ class _signInState extends State<signIn> {
                       child: Form(
                           key: _formKey,
                           child: Column(children: <Widget>[
-
+                            SizedBox(height: 40,),
                             Padding(
                               padding: const EdgeInsets.all(22.0),
                               child: TextFormField(
@@ -89,13 +87,14 @@ class _signInState extends State<signIn> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 30.0),
-                            RaisedButton(
-                                padding: EdgeInsets.all(10),
-                                color: const Color.fromARGB(
-                                    0xFF, 0x98, 0x31, 0x6A),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
+                            SizedBox(height: 20.0),
+                            ElevatedButton(
+                                style: ButtonStyle(
+                                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(14)
+                                    )),
+                                    backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
+                                ),
                                 child: Text(
                                   'Sign In',
                                   style: TextStyle(
@@ -128,10 +127,7 @@ class _signInState extends State<signIn> {
                                 SizedBox(width: 45,),
                                 Text("Don't have an account?",style: TextStyle(color: Color.fromARGB(
                                     0x77, 0x98, 0x31, 0x6A),fontWeight: FontWeight.normal)),
-                                TextButton(onPressed:() => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => RegisterDonor()),
-                                ), child: Text("Register",style: TextStyle(color: Color.fromARGB(
+                                TextButton(onPressed:() => Navigator.pop(context), child: Text("Register",style: TextStyle(color: Color.fromARGB(
                                     0xFF, 0x98, 0x31, 0x6A),fontWeight: FontWeight.w400)
                                   ,))
                               ],
@@ -141,7 +137,13 @@ class _signInState extends State<signIn> {
                ),
              ],
            ),
+              Positioned(
+                child: Image(image: AssetImage('images/donor-image-1.png')),
+                top: MediaQuery.of(context).size.height * 0.12,
+                left: MediaQuery.of(context).size.width * 0.3,
+              ),
 
-          ]));
+          ])
+    );
   }
 }
