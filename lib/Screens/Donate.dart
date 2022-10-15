@@ -89,16 +89,8 @@ class _DonateState extends State<Donate> {
   addproducts() async {}
 
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: new Text(
-            'Enter Details',
-            style: new TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.white),
-          ),
-        ),
+    return SafeArea(
+        child: Scaffold(
         body: Container(
             padding: EdgeInsets.fromLTRB(9, 0, 9, 0),
             child: SingleChildScrollView(
@@ -129,13 +121,24 @@ class _DonateState extends State<Donate> {
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 30.0, right: 30.0),
-                            child: TextFormField(
-                              decoration: InputDecoration(hintText: 'capacity'),
-                              validator: (val) => val!.isEmpty
-                                  ? 'please enter item name'
-                                  : null,
-                              onChanged: (val) =>
-                                  setState(() => capacity = val),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all( color: Color.fromARGB(
+                                    0x77, 0x98, 0x31, 0x6A),)
+
+                              ),
+                              child: TextFormField(
+                                decoration: InputDecoration(hintText: 'capacity',
+
+
+                                ),
+                                validator: (val) => val!.isEmpty
+                                    ? 'please enter valid inputs'
+                                    : null,
+                                onChanged: (val) =>
+                                    setState(() => capacity = val),
+                              ),
                             ),
                           ),
                           SizedBox(height: 10.0),
@@ -144,14 +147,22 @@ class _DonateState extends State<Donate> {
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 30.0, right: 30.0),
-                            child: TextFormField(
-                              decoration:
-                                  InputDecoration(hintText: 'latitude '),
-                              validator: (val) => val!.isEmpty
-                                  ? 'please enter item description'
-                                  : null,
-                              onChanged: (val) =>
-                                  setState(() => latitude = val),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all( color: Color.fromARGB(
+                                      0x77, 0x98, 0x31, 0x6A),)
+
+                              ),
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(hintText: 'latitude '),
+                                validator: (val) => val!.isEmpty
+                                    ? 'please enter valid inputs'
+                                    : null,
+                                onChanged: (val) =>
+                                    setState(() => latitude = val),
+                              ),
                             ),
                           ),
                           SizedBox(height: 10.0),
@@ -160,14 +171,22 @@ class _DonateState extends State<Donate> {
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 30.0, right: 30.0),
-                            child: TextFormField(
-                              decoration:
-                                  InputDecoration(hintText: 'longitude '),
-                              validator: (val) => val!.isEmpty
-                                  ? 'please enter item description'
-                                  : null,
-                              onChanged: (val) =>
-                                  setState(() => longitude = val),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all( color: Color.fromARGB(
+                                      0x77, 0x98, 0x31, 0x6A),)
+
+                              ),
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(hintText: 'longitude '),
+                                validator: (val) => val!.isEmpty
+                                    ? 'please enter valid inputs'
+                                    : null,
+                                onChanged: (val) =>
+                                    setState(() => longitude = val),
+                              ),
                             ),
                           ),
                           SizedBox(height: 10.0),
@@ -176,12 +195,20 @@ class _DonateState extends State<Donate> {
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 30.0, right: 30.0),
-                            child: TextFormField(
-                              decoration: InputDecoration(hintText: 'veg'),
-                              validator: (val) => val!.isEmpty
-                                  ? 'please enter item description'
-                                  : null,
-                              onChanged: (val) => setState(() => veg = val),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all( color: Color.fromARGB(
+                                      0x77, 0x98, 0x31, 0x6A),)
+
+                              ),
+                              child: TextFormField(
+                                decoration: InputDecoration(hintText: 'veg'),
+                                validator: (val) => val!.isEmpty
+                                    ? 'plaese verify veg/nonveg status'
+                                    : null,
+                                onChanged: (val) => setState(() => veg = val),
+                              ),
                             ),
                           ),
                           SizedBox(height: 10.0),
@@ -190,12 +217,20 @@ class _DonateState extends State<Donate> {
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 30.0, right: 30.0),
-                            child: TextFormField(
-                              decoration: InputDecoration(hintText: 'date'),
-                              validator: (val) => val!.isEmpty
-                                  ? 'please enter item description'
-                                  : null,
-                              onChanged: (val) => setState(() => date = val),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all( color: Color.fromARGB(
+                                      0x77, 0x98, 0x31, 0x6A),)
+
+                              ),
+                              child: TextFormField(
+                                decoration: InputDecoration(hintText: '                                         Date',),style: TextStyle(),
+                                validator: (val) => val!.isEmpty
+                                    ? 'please enter a valid date'
+                                    : null,
+                                onChanged: (val) => setState(() => date = val),
+                              ),
                             ),
                           ),
                           SizedBox(height: 20.0),
@@ -252,6 +287,6 @@ class _DonateState extends State<Donate> {
                           )
                         ])))
               ]),
-            ))));
+            )))));
   }
 }
