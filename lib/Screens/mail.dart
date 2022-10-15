@@ -3,36 +3,37 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
+import '../helper/auth_api.dart';
 import '../helper/notfound.dart';
-//import '../authentication/google_auth_api.dart';
 
-class mail extends StatefulWidget {
 
-  final Inventory profile;
-  mail({required this.profile});
+class Mail extends StatefulWidget {
+
+  final donor profile;
+  Mail({required this.profile});
   @override
-  _mailState createState() => _mailState();
+  _MailState createState() => _MailState();
 }
 
-class _mailState extends State<mail> {
+class _MailState extends State<Mail> {
   @override
   Widget build(BuildContext context) {
-    Inventory profile = widget.profile;
+    donor profile = widget.profile;
     Future sendemail(String text) async{
       final email='prakritivashishtha517@gmail.com';
-     // final user=await GoogleAuthApi.signIn();
-     //  if (user==null) return;
-     //  final auth= await user.authentication;
-     //  final token='';
-     // final smtpServer=gmailSaslXoauth2(email, token);
+     final user=await GoogleAuthApi.signIn();
+      if (user==null) return;
+      final auth= await user.authentication;
+      final token='';
+     final smtpServer=gmailSaslXoauth2(email, token);
       final message=Message()
         ..from(email)
-        ..recipients=['iec2021054@iiita.ac.in']
+        ..recipients=[profile.email]
         ..subject='Project Collaboration'
         ..text='$text';
-      // try{
-      //   await send(message,smtpServer);}
-      // on MailerException catch(e){print(e);}
+      try{
+        await send(message,smtpServer);}
+      on MailerException catch(e){print(e);}
     }
     String text='Hello';
     return Scaffold(

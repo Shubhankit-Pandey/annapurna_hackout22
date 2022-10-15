@@ -91,7 +91,7 @@ class _RegisterNgoState extends State<RegisterNgo> {
                             key: _formKey,
                             child: Column(children: <Widget>[
                               SizedBox(
-                                height: 20,
+                                height: 60,
                               ),
                               TextFormField(
                                 decoration: InputDecoration(
@@ -152,34 +152,40 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                             getImage();
                                           },
                                           backgroundColor:
-                                          Color.fromRGBO(92, 104, 211, .5),
+ Color.fromARGB(
+                                      0x44, 0x98, 0x31, 0x6A),
                                           child: Icon(Icons.add_a_photo_outlined),
                                         ),
                                         Text(
-                                          '     Add item image',
+                                          '     Add Government Verified\n               Certificate',
                                           style: TextStyle(
-                                              color: Colors.black87,
+                                              color: Color.fromARGB(
+                                                  0x77, 0x98, 0x31, 0x6A),
                                               fontSize: 18,
-                                              fontWeight: FontWeight.w500),
+                                              fontWeight: FontWeight.w400),
                                         ),
                                       ],
                                     ),
                                   ),
                                 ),
                               ),
+                              SizedBox(height: 65,),
                               ElevatedButton(
                                   style: ButtonStyle(
                                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(14)
+                                          borderRadius: BorderRadius.circular(11)
                                       )),
                                       backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
                                   ),
-                                  child: Text(
-                                    'Register',
-                                    style: TextStyle(
-                                        fontFamily: 'Mochiy Pop P One',
-                                        color: Colors.white,
-                                        fontSize: 18),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      'Register',
+                                      style: TextStyle(
+                                          fontFamily: 'Mochiy Pop P One',
+                                          color: Colors.white,
+                                          fontSize: 27),
+                                    ),
                                   ),
                                   onPressed: () async {
                                     if (_formKey.currentState!.validate()) {
@@ -219,10 +225,10 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                     width: 30,
                                   ),
                                   Text("Already have an account?",
-                                      style: TextStyle(
+                                      style: TextStyle(fontSize: 18,
                                           color: Color.fromARGB(
                                               0x77, 0x98, 0x31, 0x6A),
-                                          fontWeight: FontWeight.normal)),
+                                          fontWeight: FontWeight.w500)),
                                   TextButton(
                                       onPressed: () => Navigator.push(
                                         context,
@@ -231,10 +237,10 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                       ),
                                       child: Text(
                                         "Sign In",
-                                        style: TextStyle(
+                                        style: TextStyle(fontSize: 18,
                                             color: Color.fromARGB(
                                                 0xFF, 0x98, 0x31, 0x6A),
-                                            fontWeight: FontWeight.w400),
+                                            fontWeight: FontWeight.w500),
                                       ))
                                 ],
                               ),

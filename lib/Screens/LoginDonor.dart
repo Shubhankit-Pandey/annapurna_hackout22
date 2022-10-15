@@ -33,7 +33,7 @@ class _signInState extends State<signIn> {
                  height: 150,
                ),
                Padding(
-                 padding:EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+                 padding:EdgeInsets.symmetric(vertical: 20.0, horizontal: 42.0),
                  child: Container(
 
                    decoration: BoxDecoration(
@@ -48,9 +48,9 @@ class _signInState extends State<signIn> {
                       child: Form(
                           key: _formKey,
                           child: Column(children: <Widget>[
-                            SizedBox(height: 40,),
+                            SizedBox(height: 60,),
                             Padding(
-                              padding: const EdgeInsets.all(22.0),
+                              padding: const EdgeInsets.all(13.0),
                               child: TextFormField(
                                 decoration: InputDecoration(
                                   hintText: 'Email',
@@ -69,7 +69,7 @@ class _signInState extends State<signIn> {
                             ),
 
                             Padding(
-                              padding: const EdgeInsets.all(22.0),
+                              padding: const EdgeInsets.all(18.0),
                               child: TextFormField(
                                 decoration: InputDecoration(
                                   hintText: 'Password',
@@ -88,20 +88,23 @@ class _signInState extends State<signIn> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 20.0),
+                            SizedBox(height: 100.0),
                             ElevatedButton(
                                 style: ButtonStyle(
                                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(14)
+                                        borderRadius: BorderRadius.circular(11)
                                     )),
                                     backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
                                 ),
-                                child: Text(
-                                  'Sign In',
-                                  style: TextStyle(
-                                      fontFamily: 'Mochiy Pop P One',
-                                      color: Colors.white,
-                                      fontSize: 18),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'Sign In',
+                                    style: TextStyle(
+                                        fontFamily: 'Mochiy Pop P One',
+                                        color: Colors.white,
+                                        fontSize: 27),
+                                  ),
                                 ),
                                 onPressed: () async {
                                   if (_formKey.currentState!.validate()) {
@@ -126,10 +129,10 @@ class _signInState extends State<signIn> {
                             Row(
                               children: [
                                 SizedBox(width: 45,),
-                                Text("Don't have an account?",style: TextStyle(color: Color.fromARGB(
-                                    0x77, 0x98, 0x31, 0x6A),fontWeight: FontWeight.normal)),
-                                TextButton(onPressed:() => Navigator.pop(context), child: Text("Register",style: TextStyle(color: Color.fromARGB(
-                                    0xFF, 0x98, 0x31, 0x6A),fontWeight: FontWeight.w400)
+                                Text("Don't have an account?",style: TextStyle(fontSize:18,color: Color.fromARGB(
+                                    0x77, 0x98, 0x31, 0x6A),fontWeight: FontWeight.w500)),
+                                TextButton(onPressed:() => Navigator.pop(context), child: Text("Register",style: TextStyle(fontSize:18,color: Color.fromARGB(
+                                    0xFF, 0x98, 0x31, 0x6A),fontWeight: FontWeight.w500)
                                   ,))
                               ],
                             ),
@@ -140,8 +143,8 @@ class _signInState extends State<signIn> {
            ),
               Positioned(
                 child: Image(image: AssetImage('images/donor-image-1.png')),
-                top: MediaQuery.of(context).size.height * 0.12,
-                left: MediaQuery.of(context).size.width * 0.3,
+                top: MediaQuery.of(context).size.height * 0.17,
+                left: MediaQuery.of(context).size.width * 0.33,
               ),
 
           ])

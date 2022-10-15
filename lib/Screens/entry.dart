@@ -21,7 +21,7 @@ class _EnterState extends State<Enter> {
           0xFF, 0x98, 0x31, 0x6A),
       body: Column(
         children: <Widget>[
-          SizedBox(height: 40,),
+          SizedBox(height: 70,),
           Container(
             padding: const EdgeInsets.fromLTRB(35, 43,35,0),
             // width: MediaQuery.of(context).size.width,
@@ -44,21 +44,23 @@ class _EnterState extends State<Enter> {
                     decoration: TextDecoration.none,
                     color: Color.fromARGB(0xFF, 0xF9, 0xF9, 0xF9),
                     fontSize: 50,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
+                SizedBox(height: 10,),
                 Text(
-                  ' Who are you ?',
+                  'Who are you ?',
                   style: TextStyle(
                     decoration: TextDecoration.none,
                     color: Color.fromARGB(0xFF, 0xF9, 0xF9, 0xF9),
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 39,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
             ),
           ),
+          SizedBox(height: 50,),
           Container(
             padding: const EdgeInsets.all(1),
             width: MediaQuery.of(context).size.width,

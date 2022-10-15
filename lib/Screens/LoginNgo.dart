@@ -93,20 +93,23 @@ class _LoginNgoState extends State<LoginNgo> {
                             },
                           ),
                         ),
-                        SizedBox(height: 30.0),
+                        SizedBox(height: 80.0),
                         ElevatedButton(
                         style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                         borderRadius: BorderRadius.circular(14)
+                         borderRadius: BorderRadius.circular(11)
                            )),
     backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
     ),
-                            child: Text(
-                              'Sign In',
-                              style: TextStyle(
-                                  fontFamily: 'Mochiy Pop P One',
-                                  color: Colors.white,
-                                  fontSize: 18),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Sign In',
+                                style: TextStyle(
+                                    fontFamily: 'Mochiy Pop P One',
+                                    color: Colors.white,
+                                    fontSize: 27),
+                              ),
                             ),
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
@@ -127,19 +130,13 @@ class _LoginNgoState extends State<LoginNgo> {
                                 }
                               }
                             }),
-                        RaisedButton(
-                          onPressed: () async {
-                            await _auth.signOut();
-                          },
-                        ),
-
                         Row(
                           children: [
                             SizedBox(width: 45,),
-                            Text("Don't have an account?",style: TextStyle(color: Color.fromARGB(
-                                0x77, 0x98, 0x31, 0x6A),fontWeight: FontWeight.normal)),
-                            TextButton(onPressed:() => Navigator.pop(context), child: Text("Register",style: TextStyle(color: Color.fromARGB(
-                                0xFF, 0x98, 0x31, 0x6A),fontWeight: FontWeight.w400)
+                            Text("Don't have an account?",style: TextStyle(fontSize:18,color: Color.fromARGB(
+                                0x77, 0x98, 0x31, 0x6A),fontWeight: FontWeight.w500)),
+                            TextButton(onPressed:() => Navigator.pop(context), child: Text("Register",style: TextStyle(fontSize:18,color: Color.fromARGB(
+                                0xFF, 0x98, 0x31, 0x6A),fontWeight: FontWeight.w500)
                               ,))
                           ],
                         ),

@@ -50,7 +50,7 @@ class _RegisterDonorState extends State<RegisterDonor> {
                       child: Form(
                           key: _formKey,
                           child: Column(children: <Widget>[
-                            SizedBox(height: 40,),
+                            SizedBox(height: 70,),
                             TextFormField(
                               decoration: InputDecoration(
                                 hintText: 'Email',
@@ -84,20 +84,23 @@ class _RegisterDonorState extends State<RegisterDonor> {
                                 setState(() => password = val);
                               },
                             ),
-                            SizedBox(height: 30.0),
+                            SizedBox(height: 105.0),
                             ElevatedButton(
                               style: ButtonStyle(
                                 shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(14)
+                                  borderRadius: BorderRadius.circular(11)
                                 )),
                                 backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
                               ),
-                                child: Text(
-                                  'Register',
-                                  style: TextStyle(
-                                      fontFamily: 'Mochiy Pop P One',
-                                      color: Colors.white,
-                                      fontSize: 18),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'Register',
+                                    style: TextStyle(
+                                        fontFamily: 'Mochiy Pop P One',
+                                        color: Colors.white,
+                                        fontSize: 27),
+                                  ),
                                 ),
                                 onPressed: () async {
                                   if (_formKey.currentState!.validate()) {
@@ -134,10 +137,10 @@ class _RegisterDonorState extends State<RegisterDonor> {
                                   width: 30,
                                 ),
                                 Text("Already have an account?",
-                                    style: TextStyle(
+                                    style: TextStyle(fontSize: 18,
                                         color: Color.fromARGB(
                                             0x77, 0x98, 0x31, 0x6A),
-                                        fontWeight: FontWeight.normal)),
+                                        fontWeight: FontWeight.w500)),
                                 TextButton(
                                     onPressed: () => Navigator.push(
                                           context,
@@ -146,10 +149,10 @@ class _RegisterDonorState extends State<RegisterDonor> {
                                         ),
                                     child: Text(
                                       "Log In",
-                                      style: TextStyle(
+                                      style: TextStyle(fontSize: 18,
                                           color: Color.fromARGB(
                                               0xFF, 0x98, 0x31, 0x6A),
-                                          fontWeight: FontWeight.normal),
+                                          fontWeight: FontWeight.w500),
                                     ))
                               ],
                             ),

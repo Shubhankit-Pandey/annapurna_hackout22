@@ -1,3 +1,5 @@
+import 'dart:core';
+
 class Inventory {
   String capacity;
   double latitude;
@@ -18,4 +20,9 @@ class Inventory {
         required this.date,
       //  required this.url,
       });
+}
+class donor{
+  String uid;
+  String email;
+  donor({required this.email,required this.uid});
 }
