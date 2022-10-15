@@ -30,8 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
     List<String> cap = [];
     List<String> url = [];
     List<String> date = [];
-    List<String> lat = [];
-    List<String> long = [];
+    List<double> lat = [];
+    List<double> long = [];
     List<String> pid = [];
     List<String> veg = [];
     List<String> uid = [];
@@ -61,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             }
                             final documentSnapshotList = snapshot.data!.docs;
                             documentSnapshotList.forEach((element) {
+                              url.add(element['url']);
                               cap.add(element['capacity']);
                               veg.add(element['veg']);
                               date.add(element['date']);
@@ -88,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       productid: pid[i],
                                       userid: uid[i],
                                       date: date[i],
+                                          url: url[i],
                                     ));
                                 // return ListView.builder(
                                 //   itemCount: profile.length,

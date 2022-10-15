@@ -1,11 +1,12 @@
 class Inventory {
   String capacity;
-  String latitude;
-  String longitude;
+  double latitude;
+  double longitude;
   String veg;
   String productid;
   String userid;
   String date;
+  String url;
   Inventory(
       {
         required this.capacity,
@@ -15,5 +16,6 @@ class Inventory {
         required this.productid,
         required this.userid,
         required this.date,
+        required this.url,
       });
 }
