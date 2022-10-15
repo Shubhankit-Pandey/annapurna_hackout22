@@ -9,6 +9,10 @@ import 'HomeScreen.dart';
 import 'maps.dart';
 
 class Donate extends StatefulWidget {
+
+ double lat;
+ double long;
+  Donate({required this.lat, required this.long});
   @override
   _DonateState createState() => _DonateState();
 }

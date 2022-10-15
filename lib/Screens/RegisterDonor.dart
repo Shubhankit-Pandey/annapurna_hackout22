@@ -116,7 +116,7 @@ class _RegisterDonorState extends State<RegisterDonor> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Donate()),
+                                          builder: (context) => Donate(lat:0,long:0)),
                                     );
                                       await DatabaseDonor(uid: user!.uid)
                                           .updateUserData(email, user!.uid);
@@ -124,32 +124,10 @@ class _RegisterDonorState extends State<RegisterDonor> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Donate()),
+                                          builder: (context) => Donate(lat:0,long:0)),
                                     );
                                   }
                                 }),
-                            // RaisedButton(
-                            //     padding: EdgeInsets.all(10),
-                            //     color: const Color.fromARGB(
-                            //         0xFF, 0x98, 0x31, 0x6A),
-                            //     shape: RoundedRectangleBorder(
-                            //         borderRadius: BorderRadius.circular(10)),
-                            //     child: Text(
-                            //       'Register',
-                            //       style: TextStyle(
-                            //           fontFamily: 'Mochiy Pop P One',
-                            //           color: Colors.white,
-                            //           fontSize: 18),
-                            //     ),
-                            //     onPressed: () async {
-                            //
-                            //
-                            //       Navigator.push(
-                            //           context,
-                            //           MaterialPageRoute(
-                            //               builder: (context) => Donate()));
-                            //
-                            //     }),
                             Row(
                               children: [
                                 SizedBox(

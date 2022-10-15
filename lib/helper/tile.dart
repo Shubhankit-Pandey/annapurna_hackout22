@@ -1,3 +1,4 @@
+import 'package:annapurna/Screens/itemscreen.dart';
 import 'package:annapurna/classes/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,10 @@ class _TileState extends State<Tile> {
   Widget build(BuildContext context) {
    Inventory profile = widget.profile;
     return TextButton(
-      onPressed: () {},
+      onPressed: () {  Navigator.push(
+          context,
+          MaterialPageRoute(
+          builder: (context) => Item(profile: profile)));},
       child: Row(
         children: [
           Container(
