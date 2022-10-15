@@ -96,7 +96,10 @@ class _DonateState extends State<Donate> {
             child: SingleChildScrollView(
                 child: Form(
               key: _formKey,
-              child: Column(children: <Widget>[
+              child: Column(
+
+                  children: <Widget>[
+
                 Container(
                     child: SingleChildScrollView(
                         reverse: true,
@@ -123,18 +126,17 @@ class _DonateState extends State<Donate> {
                             padding: EdgeInsets.only(left: 30.0, right: 30.0),
                             child: Container(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all( color: Color.fromARGB(
-                                    0x77, 0x98, 0x31, 0x6A),)
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all( color: Color.fromARGB(
+                                      0x77, 0x98, 0x31, 0x6A),width: 2)
 
                               ),
                               child: TextFormField(
-                                decoration: InputDecoration(hintText: 'capacity',
-
-
-                                ),
+                                decoration: InputDecoration(hintText: '                       Capacity',hintStyle: TextStyle(
+                                    color: Color.fromARGB(0x77, 0x98, 0x31, 0x6A),fontSize: 23
+                                )),
                                 validator: (val) => val!.isEmpty
-                                    ? 'please enter valid inputs'
+                                    ? '       Please enter valid inputs'
                                     : null,
                                 onChanged: (val) =>
                                     setState(() => capacity = val),
@@ -151,14 +153,15 @@ class _DonateState extends State<Donate> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   border: Border.all( color: Color.fromARGB(
-                                      0x77, 0x98, 0x31, 0x6A),)
+                                      0x77, 0x98, 0x31, 0x6A),width: 2)
 
                               ),
                               child: TextFormField(
-                                decoration:
-                                    InputDecoration(hintText: 'latitude '),
+                                decoration: InputDecoration(hintText: '                       Latitude',hintStyle: TextStyle(
+                                    color: Color.fromARGB(0x77, 0x98, 0x31, 0x6A),fontSize: 23
+                                )),
                                 validator: (val) => val!.isEmpty
-                                    ? 'please enter valid inputs'
+                                    ? '       Please enter valid inputs'
                                     : null,
                                 onChanged: (val) =>
                                     setState(() => latitude = val),
@@ -175,14 +178,15 @@ class _DonateState extends State<Donate> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   border: Border.all( color: Color.fromARGB(
-                                      0x77, 0x98, 0x31, 0x6A),)
+                                      0x77, 0x98, 0x31, 0x6A),width: 2)
 
                               ),
                               child: TextFormField(
-                                decoration:
-                                    InputDecoration(hintText: 'longitude '),
+                                decoration: InputDecoration(hintText: '                       Longitude',hintStyle: TextStyle(
+                                    color: Color.fromARGB(0x77, 0x98, 0x31, 0x6A),fontSize: 23
+                                )),
                                 validator: (val) => val!.isEmpty
-                                    ? 'please enter valid inputs'
+                                    ? '       Please enter valid inputs'
                                     : null,
                                 onChanged: (val) =>
                                     setState(() => longitude = val),
@@ -199,13 +203,15 @@ class _DonateState extends State<Donate> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   border: Border.all( color: Color.fromARGB(
-                                      0x77, 0x98, 0x31, 0x6A),)
+                                      0x77, 0x98, 0x31, 0x6A),width: 2)
 
                               ),
                               child: TextFormField(
-                                decoration: InputDecoration(hintText: 'veg'),
+                                decoration: InputDecoration(hintText: '                           Veg',hintStyle: TextStyle(
+                                    color: Color.fromARGB(0x77, 0x98, 0x31, 0x6A),fontSize: 23
+                                )),
                                 validator: (val) => val!.isEmpty
-                                    ? 'plaese verify veg/nonveg status'
+                                    ? '       Please verify veg/nonveg status'
                                     : null,
                                 onChanged: (val) => setState(() => veg = val),
                               ),
@@ -221,13 +227,15 @@ class _DonateState extends State<Donate> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   border: Border.all( color: Color.fromARGB(
-                                      0x77, 0x98, 0x31, 0x6A),)
+                                      0x77, 0x98, 0x31, 0x6A),width: 2)
 
                               ),
                               child: TextFormField(
-                                decoration: InputDecoration(hintText: '                                         Date',),style: TextStyle(),
+                                decoration: InputDecoration(hintText: '                           Date',hintStyle: TextStyle(
+                                  color: Color.fromARGB(0x77, 0x98, 0x31, 0x6A),fontSize: 23
+                                )),
                                 validator: (val) => val!.isEmpty
-                                    ? 'please enter a valid date'
+                                    ? '       Please enter a valid date'
                                     : null,
                                 onChanged: (val) => setState(() => date = val),
                               ),
@@ -264,8 +272,10 @@ class _DonateState extends State<Donate> {
                           ),
                           ElevatedButton(
                             style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all(Colors.blue),
-                              backgroundColor: MaterialStateProperty.all(Colors.blue)
+                                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(14)
+                                )),
+                                backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
                             ),
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,

@@ -127,7 +127,14 @@ class _LoginNgoState extends State<LoginNgo> {
                                 }
                               }
                             }),
-                        RaisedButton(
+                        ElevatedButton(
+                          style: ButtonStyle(
+                              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(14)
+                              )),
+                              backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
+                          ),
+                          child: Text(""),
                           onPressed: () async {
                             await _auth.signOut();
                           },
