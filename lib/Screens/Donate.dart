@@ -26,7 +26,7 @@ class _DonateState extends State<Donate> {
     List<String> ids = [];
 
     final QuerySnapshot snapshot =
-        await FirebaseFirestore.instance.collection('Inventry').get();
+        await FirebaseFirestore.instance.collection('Inventory').get();
     snapshot.docs.forEach((element) {
       ids.add(element.id);
     });
@@ -62,12 +62,12 @@ class _DonateState extends State<Donate> {
         });
         url = await uploadPic();
         DocumentReference productCollection =
-            FirebaseFirestore.instance.collection('Inventry').doc();
+            FirebaseFirestore.instance.collection('Inventory').doc();
         productCollection.set({
           'capacity': capacity,
           'latitude': latitude,
           'longitude': longitude,
-          'veg/nonveg': veg,
+          'veg': veg,
           'userid': productCollection.id,
           'date': date,
           'productid':"",
@@ -76,7 +76,7 @@ class _DonateState extends State<Donate> {
         List<String> ids = await avaiableDocuments();
         for (int i = 0; i < ids.length; i++) {
           FirebaseFirestore.instance
-              .collection('Inventry')
+              .collection('Inventory')
               .doc(ids[i])
               .update({'productid': ids[i]});
         }
