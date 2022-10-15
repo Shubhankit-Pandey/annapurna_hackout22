@@ -6,7 +6,7 @@ class Inventory {
   String productid;
   String userid;
   String date;
-  String url;
+  //String url;
   Inventory(
       {
         required this.capacity,
@@ -16,6 +16,6 @@ class Inventory {
         required this.productid,
         required this.userid,
         required this.date,
-        required this.url,
+      //  required this.url,
       });
 }

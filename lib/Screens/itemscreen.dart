@@ -21,7 +21,7 @@ class _ItemState extends State<Item> {
         children: [
           Text(profile.capacity),
           Text(profile.date),
-          Text(profile.url),
+       //   Text(profile.url),
           Text(profile.veg),
           ElevatedButton(onPressed: ()=>Navigator.push(
               context,
