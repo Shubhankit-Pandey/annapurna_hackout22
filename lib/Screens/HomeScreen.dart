@@ -38,7 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
     final user = Provider.of<Usser?>(context);
     return Scaffold(
       appBar: AppBar(
-        flexibleSpace:RaisedButton(
+        flexibleSpace:ElevatedButton(
+            child:Text(""),
                     onPressed: () async {
                       await _auth.signOut();
                     },
