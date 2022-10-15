@@ -125,6 +125,11 @@ class _LoginNgoState extends State<LoginNgo> {
                                 }
                               }
                             }),
+                        RaisedButton(
+                          onPressed: () async {
+                            await _auth.signOut();
+                          },
+                        ),
 
                         Row(
                           children: [
