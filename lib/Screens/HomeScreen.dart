@@ -38,80 +38,94 @@ class _HomeScreenState extends State<HomeScreen> {
     final user = Provider.of<Usser?>(context);
     return Scaffold(
       appBar: AppBar(
-        flexibleSpace:ElevatedButton(
-            child:Text(""),
-                    onPressed: () async {
-                      await _auth.signOut();
-                    },
-                  ),
+        title: Text("Food Available",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+        backgroundColor: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A),
+        actions: [ElevatedButton(
+
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
+          ),
+          child: IconButton(
+            tooltip: "Sign Out",
+            onPressed: (){
+
+            },
+              icon: Icon(Icons.logout_rounded)),
+          onPressed: () async {
+            await _auth.signOut();
+          },
+        ),],
 
     ),
         body:
         //SafeArea(
             // child: Scaffold(
             //   body: SingleChildScrollView(
-                 Container(
-                  height:500,
-                    child:  StreamBuilder<QuerySnapshot>(
-                          stream: FirebaseFirestore.instance
-                              .collection('Inventory')
-                              .snapshots(),
-                          builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                            if (!snapshot.hasData) {
-                              return Center(child: CircularProgressIndicator());
-                            }
-                            final documentSnapshotList = snapshot.data!.docs;
-                            documentSnapshotList.forEach((element) {
-                            //  url.add(element['url']);
-                              cap.add(element['capacity']);
-                              veg.add(element['veg']);
-                              date.add(element['date']);
-                              lat.add(element['latitude']);
-                              long.add(element['longitude']);
-                              uid.add(element['userid']);
-                              pid.add(element['productid']);
-                                                         });
-                            c=documentSnapshotList.length;
+                 SingleChildScrollView(
+                   child: Container(
 
-                            if (!snapshot.hasData) {
-                              return Center(child: Text("snapshot has no data"));
-                            } else {
-                              if (c == 0) {
-                                return Flash();
-                              } else {
-                                final profile = List<Inventory>.generate(
-                                    c,
-                                        (i) => Inventory(
-                                      capacity: cap[i],
-                                      latitude: lat[i],
-                                      longitude: long[i],
-                                      veg: veg[i],
-                                      productid: pid[i],
-                                      userid: uid[i],
-                                      date: date[i],
-                                      //    url: url[i],
-                                    ));
-
-                                return GridView.builder(
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                    mainAxisSpacing: 20,
-                                  ),
-                                  padding: EdgeInsets.all(25),
-                                  physics: NeverScrollableScrollPhysics(),
-                                  itemBuilder: (context, index) {
-                                    return Tile(profile: profile[index], ind: index);
-                                  },
-                                  itemCount: profile.length,
-                                  shrinkWrap: true,
-                                );
+                      child:  StreamBuilder<QuerySnapshot>(
+                            stream: FirebaseFirestore.instance
+                                .collection('Inventory')
+                                .snapshots(),
+                            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                              if (!snapshot.hasData) {
+                                return Center(child: CircularProgressIndicator());
                               }
-                            }
-                          })
-                  //   ],
-                  // ),
-    ));
+                              final documentSnapshotList = snapshot.data!.docs;
+                              documentSnapshotList.forEach((element) {
+                              //  url.add(element['url']);
+                                cap.add(element['capacity']);
+                                veg.add(element['veg']);
+                                date.add(element['date']);
+                                lat.add(element['latitude']);
+                                long.add(element['longitude']);
+                                uid.add(element['userid']);
+                                pid.add(element['productid']);
+                                                           });
+                              c=documentSnapshotList.length;
+
+                              if (!snapshot.hasData) {
+                                return Center(child: Text("snapshot has no data"));
+                              } else {
+                                if (c == 0) {
+                                  return Flash();
+                                } else {
+                                  final profile = List<Inventory>.generate(
+                                      c,
+                                          (i) => Inventory(
+                                        capacity: cap[i],
+                                        latitude: lat[i],
+                                        longitude: long[i],
+                                        veg: veg[i],
+                                        productid: pid[i],
+                                        userid: uid[i],
+                                        date: date[i],
+                                        //    url: url[i],
+                                      ));
+
+                                  return GridView.builder(
+                                    
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      mainAxisSpacing: 20,
+                                    ),
+                                    padding: EdgeInsets.all(25),
+                                    physics: NeverScrollableScrollPhysics(),
+                                    itemBuilder: (context, index) {
+                                      return Tile(profile: profile[index], ind: index);
+                                    },
+                                    itemCount: profile.length,
+                                    shrinkWrap: true,
+                                  );
+                                }
+                              }
+                            })
+                    //   ],
+                    // ),
+    ),
+                 ));
             //     ),
             //   ),
             // )));
