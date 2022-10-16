@@ -28,14 +28,17 @@ class _HomeState extends State<Home> {
 
     }
 
-  void UpdateMyCoordinates()async{
+  Future<List> UpdateMyCoordinates()async{
     Location locator = Location();
     var locatorData = await locator.getLocation();
     setState(() {
       nextScreenLatitude =  locatorData.latitude! ;
       nextScreenLongitude = locatorData.longitude! ;
     });
-
+    List<double> a=[];
+    a.add(nextScreenLatitude);
+    a.add(nextScreenLongitude);
+    return a;
   }
   double intialLatitude = 20.5937;
   double intitalLongitude = 78.9629;
@@ -53,7 +56,7 @@ class _HomeState extends State<Home> {
           position:  latLng,
           zIndex: 2,
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueAzure),
-          rotation: locationData.heading!
+
 
 
       );
@@ -66,7 +69,7 @@ class _HomeState extends State<Home> {
 
 }*/
 
-  void update()async{
+  Future<List> update()async{
     var locationData = await _locationT.getLocation();
     // var imagedata = await getImageData();
 
@@ -80,12 +83,13 @@ class _HomeState extends State<Home> {
 
           )));
     }
-  UpdateMyCoordinates();
+    Future<List<dynamic>> b=UpdateMyCoordinates();
 
 
 
     updateMarker(locationData);
 
+return b;
 
 
   }
@@ -94,12 +98,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          floatingActionButton: FloatingActionButton(
-            onPressed: (){
-           update();
-            },
-            child: Icon(Icons.location_searching_rounded),
-          ),
           body: Container(
 
             child: Stack(
@@ -118,38 +116,75 @@ class _HomeState extends State<Home> {
 
                 ),
                 Positioned(
-                    left: 300,
+                  top: 700,
+                    left: 30,
                     child: Container(
-                        decoration: BoxDecoration(
+                      height: 100,
+                      width: 170,
+                      child: TextButton(
+                            onPressed: (){
+                              Future<List<dynamic>> d=update();
+                              
+                            },
+                            child: Container(
+                                height: 50,
+                                width: 200,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.green),
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white
+                                ),
+                                child: Center(child: Text("Change my location",style: TextStyle(color: Colors.green,fontSize: 16),))
+                            ),
+                          ),
 
-                        ),
-                        child: IconButton(
-                            icon: Icon(Icons.done_outline,color: Colors.green,),
-                            iconSize: 40,
-                            splashRadius: 5,
-                            splashColor: Colors.black,
-                            onPressed: () {
-                              if (nextScreenLongitude != 0 &&
-                                  nextScreenLatitude != 0) {
 
-                                saveMyCoordinates();
 
-                              }
-                              else{
-                                showDialog(context: context, builder: (context){
-                                  return AlertDialog(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(33),
-                                    ),
-                                    content: Text("Please enter a valid location"),
-                                    contentPadding: EdgeInsets.all(30),
-                                  );
+                    )),
+                Positioned(
+                    top: 700,
+                    left: 220,
+                    child: Container(
+                      height: 100,
+                      width: 170,
+                      child: TextButton(
+                        onPressed: (){
+                              () {
+                            if (nextScreenLongitude != 0 &&
+                                nextScreenLatitude != 0) {
 
-                                });
+                              saveMyCoordinates();
 
-                              }
+
                             }
-                        )
+                            else{
+                              showDialog(context: context, builder: (context){
+                                return AlertDialog(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(33),
+                                  ),
+                                  content: Text("Please enter a valid location"),
+                                  contentPadding: EdgeInsets.all(30),
+                                );
+
+                              });
+
+                            }
+                          };
+                        },
+                        child: Container(
+                            height: 50,
+                            width: 200,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.green
+                            ),
+                            child: Center(child: Text("Save my location",style: TextStyle(color: Colors.white,fontSize: 16),))
+                        ),
+                      ),
+
+
+
                     )),
 
               ],

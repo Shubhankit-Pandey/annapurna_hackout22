@@ -51,17 +51,20 @@ class _MailState extends State<Mail> {
             ),
           ),
           SizedBox(height: 20.0),
-          RaisedButton(
+          ElevatedButton(
             child: Text('Send Mail',style: TextStyle(color: Colors.indigo[900]),),
-            color: Colors.white,
-            elevation: 0,
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.white),
+              elevation: MaterialStateProperty.all(0),
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(28.0))),)
+
+            ),
             onPressed: () {
               sendemail(text);
               Navigator.push(context, MaterialPageRoute(builder: (context)=>Flash())) ;
             },
-            padding: EdgeInsets.symmetric(vertical: 5),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(28.0))),
+
           ),
         ],
       ),
