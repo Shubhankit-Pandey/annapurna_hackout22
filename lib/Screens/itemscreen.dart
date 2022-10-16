@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import '../classes/profile.dart';
 
 class Item extends StatefulWidget {
-  //final Inventory profile;
-  //Item({required this.profile,});
+  final Inventory profile;
+  Item({required this.profile,});
 
   @override
   _ItemState createState() => _ItemState();
