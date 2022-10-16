@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             }
                             final documentSnapshotList = snapshot.data!.docs;
                             documentSnapshotList.forEach((element) {
-                              url.add(element['url']);
+                            //  url.add(element['url']);
                               cap.add(element['capacity']);
                               veg.add(element['veg']);
                               date.add(element['date']);
@@ -72,8 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               pid.add(element['productid']);
                                                          });
                             c=documentSnapshotList.length;
-                            print("fsdj");
-                            print(c);
+
                             if (!snapshot.hasData) {
                               return Center(child: Text("snapshot has no data"));
                             } else {
@@ -90,14 +89,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       productid: pid[i],
                                       userid: uid[i],
                                       date: date[i],
-                                          url: url[i],
+                                      //    url: url[i],
                                     ));
-                                // return ListView.builder(
-                                //   itemCount: profile.length,
-                                //   itemBuilder: (context, index) {
-                                //     return Tile(profile: profile[index], ind: index);
-                                //   },
-                                // );
+
                                 return GridView.builder(
                                   gridDelegate:
                                       SliverGridDelegateWithFixedCrossAxisCount(

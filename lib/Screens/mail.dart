@@ -3,34 +3,39 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
+import '../helper/auth_api.dart';
 import '../helper/notfound.dart';
 
-class mail extends StatefulWidget {
 
-  final Inventory profile;
-  mail({required this.profile});
+class Mail extends StatefulWidget {
+
+  final donor profile;
+  Mail({required this.profile});
   @override
-  _mailState createState() => _mailState();
+  _MailState createState() => _MailState();
 }
 
-class _mailState extends State<mail> {
+class _MailState extends State<Mail> {
   @override
   Widget build(BuildContext context) {
-    Inventory profile = widget.profile;
+    donor profile = widget.profile;
     Future sendemail(String text) async{
       final email='prakritivashishtha517@gmail.com';
-      String password='';
-      final smtpServer=gmail(email, password);
+     final user=await GoogleAuthApi.signIn();
+      if (user==null) return;
+      final auth= await user.authentication;
+      final token='';
+     final smtpServer=gmailSaslXoauth2(email, token);
       final message=Message()
-        ..from=Address(email,'CodeMate')
+        ..from(email)
         ..recipients=[profile.email]
         ..subject='Project Collaboration'
-        ..text='${text}';
+        ..text='$text';
       try{
         await send(message,smtpServer);}
       on MailerException catch(e){print(e);}
     }
-    String tex='Hello';
+    String text='Hello';
     return Scaffold(
       backgroundColor: Color.fromRGBO(33, 57, 89, 1),
       body:
@@ -42,7 +47,7 @@ class _mailState extends State<mail> {
             child: TextFormField(
               validator: (val) =>
               val!.isEmpty ? 'please enter the meassage' : null,
-              onChanged: (val) => setState(() => tex = val),
+              onChanged: (val) => setState(() => text = val),
             ),
           ),
           SizedBox(height: 20.0),
@@ -56,7 +61,7 @@ class _mailState extends State<mail> {
 
             ),
             onPressed: () {
-              sendemail(tex);
+              sendemail(text);
               Navigator.push(context, MaterialPageRoute(builder: (context)=>Flash())) ;
             },
 

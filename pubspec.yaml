@@ -78,6 +78,9 @@ flutter:
      - images/donor-image-1.png
      - images/reciever-image-1.png
      - images/donate.png
+     - images/nonveg.jpeg
+     - images/veg.png
+     - images/location.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
