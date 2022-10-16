@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import '../classes/profile.dart';
 
 class Item extends StatefulWidget {
-  final Inventory profile;
-  Item({required this.profile,});
+  //final Inventory profile;
+  //Item({required this.profile,});
 
   @override
   _ItemState createState() => _ItemState();
@@ -15,19 +15,74 @@ class Item extends StatefulWidget {
 class _ItemState extends State<Item> {
   @override
   Widget build(BuildContext context) {
-    Inventory profile = widget.profile;
-    return Scaffold(
-      body:Column(
-        children: [
-          Text(profile.capacity),
-          Text(profile.date),
-          Text(profile.url),
-          Text(profile.veg),
-          ElevatedButton(onPressed: ()=>Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => mail(profile: profile,))), child: Text(""))
-        ],
+    //Inventory profile = widget.profile;
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          alignment: Alignment.center,
+          child: Container(
+            width: 300,
+            height: 700,
+            decoration: BoxDecoration(
+              border: Border.all(color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A),width: 2),
+              color: Colors.white,
+               borderRadius: BorderRadius.circular(22)
+            ),
+            child: Column(
+              children: [
+                SizedBox(height: 50,),
+                Container(
+                  height: 200,
+                  width: 250,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(22),
+                    border: Border.all(color: Colors.purpleAccent)
+                  ),
+                ),
+                SizedBox(height: 30,),
+                Text("Location:  India",style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.w500,
+                    color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)
+                ),),
+                SizedBox(height: 30,),
+                Text("Capacity:   3 Persons",style: TextStyle(
+                  fontSize: 20,fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)
+                ),),
+                SizedBox(height: 30,),
+                Text("Value : value is this",style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)
+                ),),
+                SizedBox(height: 30,),
+                Text("URL: URL of the world",style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)
+                ),),
+                SizedBox(height: 30,),
+                Text("Veg: Yes",style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)
+                ),),
+                SizedBox(height: 50,),
+                Divider(color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A),thickness: 2,),
+                SizedBox(height: 40,),
+                ElevatedButton(
+                    style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14)
+                        )),
+                        backgroundColor: MaterialStateProperty.all(Color.fromARGB(0xFF, 0x98, 0x31, 0x6A))
+                    ),
+                    onPressed: ()=> print("YES"),/* Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => mail(profile: profile,))) , */ child: Text("Accept",style: TextStyle(color: Colors.white),))
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

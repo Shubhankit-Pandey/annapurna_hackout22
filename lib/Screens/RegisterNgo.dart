@@ -1,4 +1,5 @@
 import 'package:annapurna/Screens/Donate.dart';
+import 'package:annapurna/Screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../authentication/authentication.dart';
@@ -152,13 +153,13 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                             getImage();
                                           },
                                           backgroundColor:
-                                          Color.fromRGBO(92, 104, 211, .5),
+                                          Color.fromARGB(0xFF, 0x98, 0x31, 0x6A),
                                           child: Icon(Icons.add_a_photo_outlined),
                                         ),
                                         Text(
                                           '     Add item image',
                                           style: TextStyle(
-                                              color: Colors.black87,
+                                            color:  Color.fromARGB(0xFF, 0x98, 0x31, 0x6A),
                                               fontSize: 18,
                                               fontWeight: FontWeight.w500),
                                         ),
@@ -197,7 +198,7 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) =>Donate(lat:0,long:0)),
+                                              builder: (context) =>HomeScreen()),
                                         );
                                         await DatabaseNGO(uid: user!.uid)
                                             .updateUserData(
@@ -207,7 +208,7 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) => Donate(lat:0,long:0))
+                                              builder: (context) => HomeScreen())
                                         );
                                       }
 

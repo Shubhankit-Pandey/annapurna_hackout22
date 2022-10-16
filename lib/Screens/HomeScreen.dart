@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // child: Scaffold(
             //   body: SingleChildScrollView(
                  Container(
-        height:500,
+                  height:500,
                     child:  StreamBuilder<QuerySnapshot>(
                           stream: FirebaseFirestore.instance
                               .collection('Inventory')
