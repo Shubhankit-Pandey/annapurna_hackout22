@@ -55,7 +55,7 @@ class _TileState extends State<Tile> {
                     borderRadius:
                     BorderRadius.circular(15),
                     child: Image.asset(
-                      "Images/food.png",
+                      "Images/food.jpeg",
                       fit: BoxFit.cover,
                     ),
                   ),

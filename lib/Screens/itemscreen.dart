@@ -37,7 +37,12 @@ class _ItemState extends State<Item> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(22),
-                    border: Border.all(color: Colors.purpleAccent)
+                    border: Border.all(color: Colors.purpleAccent),
+
+                  ),
+                  child: Image.asset(
+                    "Images/food.jpeg",
+                    fit: BoxFit.cover,
                   ),
                 ),
                 SizedBox(height: 30,),
