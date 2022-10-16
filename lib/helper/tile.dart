@@ -18,10 +18,10 @@ class _TileState extends State<Tile> {
   Widget build(BuildContext context) {
    Inventory profile = widget.profile;
     return TextButton(
-      onPressed: () {  Navigator.push(
+      onPressed: () {  /*Navigator.push(
           context,
           MaterialPageRoute(
-          builder: (context) => Item(profile: profile)));},
+          builder: (context) => Item(profile: profile)));*/},
       child: Row(
         children: [
           Container(
@@ -29,7 +29,7 @@ class _TileState extends State<Tile> {
             width: 150,
             decoration: BoxDecoration(
                 border: Border.all(
-                    color: Colors.black, width: 3),
+                    color: Color.fromARGB(0xff, 0x98, 0x31, 0x6A), width: 1.2),
                 color: Colors.white,
                 borderRadius:
                 BorderRadius.circular(20)),
@@ -40,6 +40,7 @@ class _TileState extends State<Tile> {
                 ),
                 Container(
                   decoration: BoxDecoration(
+                    border: Border.all( ),
                       borderRadius:
                       BorderRadius.circular(400)),
                   height: MediaQuery.of(context)
@@ -61,11 +62,11 @@ class _TileState extends State<Tile> {
                 ),
                 Text(
                   profile.capacity,
-                  style: TextStyle(fontSize: 17),
+                  style: TextStyle(fontSize: 15,color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)),
                 ),
                 Text(
                   profile.date,
-                  style: TextStyle(fontSize: 17),
+                  style: TextStyle(fontSize: 15,color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)),
                 ),
               ],
             ),
