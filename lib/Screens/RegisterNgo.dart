@@ -157,12 +157,12 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                           child: Icon(Icons.add_a_photo_outlined),
                                         ),
                                         Text(
-                                          '     Add Government Verified\n               Certificate',
+                                          '  Add Government Verified\n              Certificate',
                                           style: TextStyle(
                                               color: Color.fromARGB(
-                                                  0x77, 0x98, 0x31, 0x6A),
+                                                  0xFF, 0x98, 0x31, 0x6A),
                                               fontSize: 18,
-                                              fontWeight: FontWeight.w400),
+                                              fontWeight: FontWeight.w500),
                                         ),
                                       ],
                                     ),
@@ -222,10 +222,10 @@ class _RegisterNgoState extends State<RegisterNgo> {
                               Row(
                                 children: [
                                   SizedBox(
-                                    width: 30,
+                                    width: 21,
                                   ),
                                   Text("Already have an account?",
-                                      style: TextStyle(fontSize: 18,
+                                      style: TextStyle(fontSize: 16.5,
                                           color: Color.fromARGB(
                                               0x77, 0x98, 0x31, 0x6A),
                                           fontWeight: FontWeight.w500)),
@@ -237,7 +237,7 @@ class _RegisterNgoState extends State<RegisterNgo> {
                                       ),
                                       child: Text(
                                         "Sign In",
-                                        style: TextStyle(fontSize: 18,
+                                        style: TextStyle(fontSize: 16.5,
                                             color: Color.fromARGB(
                                                 0xFF, 0x98, 0x31, 0x6A),
                                             fontWeight: FontWeight.w500),
