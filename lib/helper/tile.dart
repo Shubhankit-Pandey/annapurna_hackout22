@@ -18,10 +18,10 @@ class _TileState extends State<Tile> {
   Widget build(BuildContext context) {
    Inventory profile = widget.profile;
     return TextButton(
-      onPressed: () {  /*Navigator.push(
+      onPressed: () {  Navigator.push(
           context,
           MaterialPageRoute(
-          builder: (context) => Item(profile: profile)));*/},
+          builder: (context) => Item(profile: profile)));},
       child: Row(
         children: [
           Container(
@@ -55,7 +55,7 @@ class _TileState extends State<Tile> {
                     borderRadius:
                     BorderRadius.circular(15),
                     child: Image.asset(
-                      "Images/img.png",
+                      "Images/food.png",
                       fit: BoxFit.cover,
                     ),
                   ),

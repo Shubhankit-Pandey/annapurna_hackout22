@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           child: IconButton(
             tooltip: "Sign Out",
-            onPressed: (){
+            onPressed: () async { await _auth.signOut();
 
             },
               icon: Icon(Icons.logout_rounded)),

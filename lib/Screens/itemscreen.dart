@@ -15,7 +15,7 @@ class Item extends StatefulWidget {
 class _ItemState extends State<Item> {
   @override
   Widget build(BuildContext context) {
-    //Inventory profile = widget.profile;
+    Inventory profile = widget.profile;
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -46,22 +46,17 @@ class _ItemState extends State<Item> {
                     color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)
                 ),),
                 SizedBox(height: 30,),
-                Text("Capacity:   3 Persons",style: TextStyle(
+                Text( profile.capacity,style: TextStyle(
                   fontSize: 20,fontWeight: FontWeight.w500,
                   color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)
                 ),),
                 SizedBox(height: 30,),
-                Text("Value : value is this",style: TextStyle(
+                Text(profile.veg,style: TextStyle(
                     fontSize: 20,fontWeight: FontWeight.w500,
                   color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)
                 ),),
                 SizedBox(height: 30,),
-                Text("URL: URL of the world",style: TextStyle(
-                    fontSize: 20,fontWeight: FontWeight.w500,
-                  color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)
-                ),),
-                SizedBox(height: 30,),
-                Text("Veg: Yes",style: TextStyle(
+                Text(profile.date,style: TextStyle(
                     fontSize: 20,fontWeight: FontWeight.w500,
                   color: Color.fromARGB(0xFF, 0x98, 0x31, 0x6A)
                 ),),

@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
@@ -14,36 +12,30 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-
+  double nextScreenLatitude = 0 ;
+  double nextScreenLongitude = 0 ;
   void saveMyCoordinates() async {
-
     setState(() {
       UpdateMyCoordinates();
+      update();
+      print('$nextScreenLatitude and$nextScreenLongitude');
     });
-    // if(nextScreenLatitude != 0 && nextScreenLongitude != 0){
-    //   FirebaseFirestore.instance
-    //       .collection('Inventory')
-    //       .doc(uid)
-    //       .update({'Latitude': nextScreenLatitude ,'logitude': nextScreenLongitude});
-
     }
 
-  Future<List> UpdateMyCoordinates()async{
+  void UpdateMyCoordinates()async{
     Location locator = Location();
     var locatorData = await locator.getLocation();
     setState(() {
       nextScreenLatitude =  locatorData.latitude! ;
       nextScreenLongitude = locatorData.longitude! ;
+      print('$nextScreenLatitude and$nextScreenLongitude');
+
     });
-    List<double> a=[];
-    a.add(nextScreenLatitude);
-    a.add(nextScreenLongitude);
-    return a;
+
   }
   double intialLatitude = 20.5937;
   double intitalLongitude = 78.9629;
-  double nextScreenLatitude = 0 ;
-  double nextScreenLongitude = 0 ;
+
   late GoogleMapController mapController ;
   late Marker marker= Marker(markerId: MarkerId("initial"));
   Location _locationT = Location();
@@ -56,41 +48,22 @@ class _HomeState extends State<Home> {
           position:  latLng,
           zIndex: 2,
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueAzure),
-
-
-
       );
-
     });
   }
-  /*Future<Uint8List> getImageData()async{
-    ByteData unit = await DefaultAssetBundle.of(context).load("Images/img.png");
-    return unit.buffer.asUint8List();
 
-}*/
-
-  Future<List> update()async{
+void update()async{
     var locationData = await _locationT.getLocation();
-    // var imagedata = await getImageData();
-
-    updateMarker(locationData);
-
+       updateMarker(locationData);
     if(mapController!= null) {
       mapController.animateCamera(
           CameraUpdate.newCameraPosition(new CameraPosition(
             target: LatLng(locationData.latitude!, locationData.longitude!),
             zoom: 17.44,
-
           )));
     }
-    Future<List<dynamic>> b=UpdateMyCoordinates();
-
-
-
+   UpdateMyCoordinates();
     updateMarker(locationData);
-
-return b;
-
 
   }
 
@@ -123,8 +96,7 @@ return b;
                       width: 170,
                       child: TextButton(
                             onPressed: (){
-                              Future<List<dynamic>> d=update();
-                              
+                             update();
                             },
                             child: Container(
                                 height: 50,
@@ -137,9 +109,6 @@ return b;
                                 child: Center(child: Text("Change my location",style: TextStyle(color: Colors.green,fontSize: 16),))
                             ),
                           ),
-
-
-
                     )),
                 Positioned(
                     top: 700,
@@ -152,7 +121,6 @@ return b;
                               () {
                             if (nextScreenLongitude != 0 &&
                                 nextScreenLatitude != 0) {
-
                               saveMyCoordinates();
 
 
